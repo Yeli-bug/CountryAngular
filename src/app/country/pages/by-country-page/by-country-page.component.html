@@ -1,0 +1,27 @@
+<div class="bg-accent">
+<country-search-input
+  (value)="query.set($event)"
+placeholder="Buscar por pais"/>
+</div>
+
+<div class="bg-zinc-100">
+  <div class="bg-secondary border-zinc-200 text-zinc-800">
+    This is a hardcoded dark text on a light background,
+    it needs double the amount of class names to support dark mode.
+  </div>
+</div>
+
+<country-list
+  [countries]="countryResource.value() ?? []"
+  [errorMessage]="countryResource.error()"
+  [isEmpty]="countryResource.value()?.length === 0"
+  [isLoading]="countryResource.isLoading()"
+/>
+
+<!-- @if (countryResources.error()) {
+  <h3> {{ countryResources.error() }}</h3>
+} @if (countryResources.hasValues() ) {
+  <-- Counter/list->
+<country-list [countries]="countryResources.value()!"/>
+} -->
+

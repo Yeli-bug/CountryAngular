@@ -1,0 +1,45 @@
+<!-- country/search-input -->
+ <!-- el placeholder y el value son datos que necesita el componente para funcionar -->
+<country-search-input
+placeholder="Buscar por capital de mi pais"
+(value)="query.set($event)"
+/>
+
+
+<country-list
+  [countries]="countryResource.value() ?? []"
+  [errorMessage]="countryResource.error()"
+  [isEmpty]="countryResource.value()?.length === 0"
+  [isLoading]="countryResource.isLoading()"
+/>
+
+
+<!--
+@if (countryResources.error()) {
+  <h3> {{ countryResources.error() }}</h3>
+} @if (countryResources.hasValues() ) {
+  <-- Counter/list--
+<country-list [countries]="countryResources.value()!"/>
+} -->
+
+
+
+
+<!-- <section class="flex flex-row gap-2 mt-2">
+  <input
+    type="text"
+    class="input input-bordered mr-2 w-56"
+    placeholder="Buscar"
+    autofocus
+    #txtSearch
+    (keyup.enter)="onSearch(txtSearch.value)"
+  />
+ con el (keyup.enter) si alguien le da ENTER se ejecuta la funcion OnSearch
+
+  <button class="btn btn-primary" (click)="onSearch(txtSearch.value)">
+    Buscar
+  </button>
+ con lo siguente (click)="onSearch(txtSearch.value)"  en el boton al darle clik se ejecuta la funcion
+</section> -->
+
+
